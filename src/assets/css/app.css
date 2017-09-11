@@ -263,3 +263,7 @@ ul li ul li:hover .control-button {
 .create-process-container {
     display:inline-block;
 }
+
+::selection {
+    background:transparent;
+}
