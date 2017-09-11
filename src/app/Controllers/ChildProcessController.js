@@ -1,7 +1,5 @@
 nodeInstanceManagerApp.controller('ChildProcessController', function ChildProcessController($scope) {
 
-	//const ChildProcess = require('../src/app/Modules/ChildProcess.js');
-	//const forever = require('forever-monitor');
 	const app = require('electron').app;
 	const remote = require('electron').remote;
     const window = remote.getCurrentWindow();
@@ -57,8 +55,5 @@ nodeInstanceManagerApp.controller('ChildProcessController', function ChildProces
 		//setTimeout(function(){ ChildProcess.kill('SIGKILL') }, 3000);
 
 	}
-
-	//@TODO Include the module directly in ANGULAR.
-
 
 });
