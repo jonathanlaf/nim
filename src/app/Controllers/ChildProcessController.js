@@ -1,6 +1,5 @@
 nodeInstanceManagerApp.controller('ChildProcessController', function ChildProcessController($scope) {
 
-	const app = require('electron').app;
 	const remote = require('electron').remote;
     const window = remote.getCurrentWindow();
     const path = require('path');
