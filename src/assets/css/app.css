@@ -1,0 +1,265 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #2D2D30;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow:hidden
+}
+a {
+    color: #68217A;
+}
+ul {
+    padding:0px;
+    margin:0px;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(104,33,122,0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(133,133,133,0.4);
+}
+
+:focus {
+    outline: 0;
+}
+
+.item-button, .group-button {
+    position:relative;
+    top:-1px;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border: 0;
+    color: transparent;
+    font-size: 12px;
+}
+
+/*https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class/8539107#8539107*/
+ul li div > .item-button {
+    left:0;
+}
+ul li div > .item-button ~ .item-button {
+    left:-12px;
+}
+
+ul li div > .group-button {
+    left:0;
+}
+ul li div > .group-button ~ .group-button {
+    left:-12px;
+}
+
+#process-list li:hover .group-button {
+    color: #F1F1F1;
+}
+
+#process-list li ul li:hover .item-button {
+    color: #F1F1F1;
+}
+
+.item-button:hover, .group-button:hover {
+    background-color: #3F3F41;
+}
+.confirm-btn {
+    width: 535px;
+    height: 25px;
+    padding: 3px 5px;
+    background: rgba(104,33,122,0.8);
+    color: white;
+}
+.confirm-btn:hover {
+    background: rgba(104,33,122,1);
+}
+
+.edit-item-form label {
+    width: 110px;
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    margin: 0;
+}
+
+.edit-item-form input {
+    width: 400px;
+}
+
+.tool-bar-button {
+    height: 32px;
+    width: 32px;
+    background-color: transparent;
+    border: 0;
+    color: #F1F1F1;
+    font-size: 14px;
+}
+
+.tool-bar-button:hover {
+    background-color: #3F3F41;
+    border-bottom: 4px solid #68217A;
+}
+
+#add-group-btn {
+    cursor: pointer;
+    height: 32px;
+    border: 0;
+    color: #F1F1F1;
+    font-size: 12px;
+    padding:0 10px 0 10px;
+    background-color: #3F3F41;
+    border-bottom: 4px solid #68217A;
+}
+#add-group-btn:hover {
+    /*background: rgba(104,33,122,0.1);*/
+    background: rgba(63,63,65,0.6);
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/
+    -webkit-box-shadow: inset 0 0 6px rgba(104,33,122,0.4);
+}
+
+.control-button {
+    position: relative;
+    top:-2px;
+    right:1px;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border:0;
+    color:white;
+    font-size:16px;
+}
+.control-button i {
+    position: relative;
+    top:1px;
+    right:1px;
+}
+.control-button:hover { cursor: pointer; }
+ul li ul li {
+    cursor: pointer;
+} 
+ul li ul li:hover .control-button {
+    background-color: #68217A;
+}
+
+#header {
+    -webkit-app-region: drag;
+}
+
+#title-bar {
+    -webkit-app-region: drag;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    color: #ADADAD;
+}
+
+#title {
+    position: fixed;
+    top: 2px;
+    left: 4px;
+    line-height: 32px;
+    font-size: 14px;
+}
+
+#menu-btn {
+    cursor: pointer;
+    border: none;
+}
+
+#title-bar-btns {
+    -webkit-app-region: no-drag;
+    position: fixed;
+    top: 1px;
+    right: 0;
+}
+#title-bar-btns button {
+    vertical-align:middle;
+}
+#content {
+    margin:24px 0;
+    padding: 0 24px;
+    color: #CCCCCC;
+    font-size: 14px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+#process-list ul {
+    padding:5px;
+}
+
+#process-list li {
+    list-style-type: none;
+    padding:5px 0 0 0;
+}
+
+#footer {
+    position:fixed;
+    height: 24px;
+    width: 100%;
+    padding: 0;
+    bottom: 0;
+    margin: 0;
+    color: #ADADAD;
+    background-color: #411d52;
+}
+
+#status {
+    position: relative;
+    bottom: 2px;
+    left: 5px;
+    line-height: 32px;
+    font-size: 14px;
+}
+
+#toggle {
+    position: fixed;
+    padding: 0;
+    right: 7px;
+    bottom: 7px;
+    margin: 0;
+}
+
+#process-list ul li ul li {
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+    opacity: 0;
+}
+#process-list li.show {
+    opacity: 1;
+}
+
+#add-group-btn {
+    margin-top:24px;
+}
+
+#close-btn:hover {
+    color: #902ea8;
+}
+
+.create-process-container {
+    display:inline-block;
+}

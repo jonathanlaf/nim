@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="nodeInstanceManagerApp">
+    <head>
+        <meta charset="utf-8">
+        <title>NodeJS Instance Manager - No app running</title>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/font-mfizz.css">
+        <link rel="stylesheet" href="assets/css/app.css">
+
+        <base href="./">
+    </head>
+    <body ng-controller="WindowController">
+        <div id="header">
+            <div id="title-bar">
+                <div id="title">
+                    <button id="menu-btn" class="tool-bar-button">
+                        <i class="fa fa-align-justify" aria-hidden="true"></i>
+                    </button>
+                    NodeJS Instance Manager - {{ runningApp }}
+                </div>
+                <div id="title-bar-btns">
+                    <button id="min-btn" class="tool-bar-button" ng-click="minimize()"><i class="fa fa-window-minimize" aria-hidden="true"></i></button>
+                    <button id="max-btn" class="tool-bar-button" ng-click="maximize()"><i class="fa fa-square-o" aria-hidden="true"></i></button>
+                    <button id="close-btn" class="tool-bar-button" ng-click="close()"><i class="fa fa-times" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+        <div style="height: 100%;" ng-view=""></div>
+        <div id="footer">
+            <div id="status">
+            <p ng-repeat="Message in Messages">{{ Message }}</p>
+            </div>
+            <div id="toggle">
+                <button id="toggle-btn" class="tool-bar-button"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <script src="assets/js/angular/angular.min.js"></script>
+        <script src="assets/js/angular-route/angular-route.min.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/Controllers/WindowController.js"></script>
+        <script src="app/Controllers/NodeInstanceManagerController.js"></script>
+        <script src="app/Controllers/ChildProcessController.js"></script>
+    </body>
+</html>

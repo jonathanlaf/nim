@@ -1,0 +1,41 @@
+<div id="content" ng-controller="NodeInstanceManagerController as NIMCtrl">
+    <ul id="process-list">
+        <li ng-repeat="group in processesList">
+            <div ng-if="!group.editMode">
+                {{ group.groupName }}
+                <button class="add-btn group-button" ng-click="addItem(group)"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+                <button class="edit-btn group-button" ng-click="editGroup(group)"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+                <button class="trash-btn group-button" ng-click="deleteGroup(group)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div ng-if="group.editMode" class="edit-group-form">
+                <label>Name :</label>
+                <input type="text" ng-model="group.groupName"><br>
+                <button class="confirm-btn item-button" ng-click="saveGroup(group)"><i class="fa fa-check-square" aria-hidden="true"></i> Save</button>
+            </div>
+            <ul ng-switch on="group.items.length > 0" ng-controller="ChildProcessController as CPCtrl">
+                <li ng-repeat="item in group.items" class="open">
+                    <div ng-if="!item.editMode">
+                        <div  class="create-process-container" >
+                            <button class="control-button" ng-click="createProcess(group, item)"><i class="fa fa-play-circle" aria-hidden="true"></i></button>
+                        </div>
+
+                        <span>{{ item.itemName }}</span>
+                        <button class="edit-btn item-button" ng-click="editItem(item)"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+                        <button class="trash-btn item-button" ng-click="deleteItem(group, item)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </div>
+                    <div ng-if="item.editMode" class="edit-item-form">
+                        <label>Name :</label>
+                        <input type="text" ng-model="item.itemName"><br>
+                        <label>Path :</label>
+                        <input type="text" class="file-selector" ng-model="item.path">
+                        <button ng-click="openFileSelector(group, item)"><i class="icon-javascript" aria-hidden="true"></i> Select</button>
+                        <label>Arguments :</label>
+                        <input type="text" ng-model="item.args"><br>
+                        <button class="confirm-btn item-button" ng-click="saveItem(item)"><i class="fa fa-check-square" aria-hidden="true"></i> Save</button>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <button ng-click="addGroup()" id="add-group-btn"><i class="fa fa-plus" aria-hidden="true"></i> Add group</button>
+</div>
