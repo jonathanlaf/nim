@@ -8,32 +8,28 @@ nodeInstanceManagerApp.controller('ChildProcessController', function ChildProces
     $scope.Messages = ['No messages.'];
 	$scope.Processes = [];
 
-	//window.on('window-all-closed', () => {
+    window.on('window-all-closed', () => {
 	    // On OS X it is common for applications and their menu bar
 	    // to stay active until the user quits explicitly with Cmd + Q
-	    //if (process.platform !== 'darwin') {
-	        //for (let i = 0; i < $scope.Processes.length; i++) {
-	            //$scope.Processes[i].stop();
-	        //}
-	    //}
-	//});
+	    if (process.platform !== 'darwin') {
+	        for (let i = 0; i < $scope.Processes.length; i++) {
+	            $scope.Processes[i].kill('SIGKILL');
+	        }
+	    }
+	});
 
-	/*window.on('before-quit', () => {
+    window.on('before-quit', () => {
 	    if (process.platform === 'darwin') {
-	        for (let i = 0; i < $scope.Processes.length; i++) { 
-	            $scope.Processes[i].stop();
+	        for (let i = 0; i < $scope.Processes.length; i++) {
+                $scope.Processes[i].kill('SIGKILL');
 	        }    
 	    }
-	});*/
-
-	//$scope.Processes.push(ChildProcess.init('index.js', '/Users/jonathanlafleur/Desktop/Sites/NIM/test/expressTest'));
+	});
 
 	$scope.createProcess = (group, item) => {
 		let file = item.path;
 		let filename = path.parse(file).base;
 		let dir = path.parse(file).dir;
-
-		//$scope.Processes.push(ChildProcess.init(filename, dir));
 
 		const ChildProcess = spawn('node', [dir+"/"+filename]);
 
@@ -51,7 +47,7 @@ nodeInstanceManagerApp.controller('ChildProcessController', function ChildProces
 			}
 		});
 
-		//setTimeout(function(){ ChildProcess.kill('SIGKILL') }, 3000);
+        $scope.Processes.push(ChildProcess);
 
 	}
 
