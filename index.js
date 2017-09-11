@@ -44,7 +44,9 @@ app.on('window-all-closed', () => {
 });
 
 app.on('before-quit', () => {
-    mainWindow.removeAllListeners('close');
+    if (mainWindow !== null) {
+        mainWindow.removeAllListeners('close');
+    }
 });
 
 app.on('activate', () => {
