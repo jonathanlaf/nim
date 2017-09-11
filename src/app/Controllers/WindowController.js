@@ -20,7 +20,7 @@ nodeInstanceManagerApp.controller('WindowController', function WindowController(
     };
 
     $scope.minimize = () => {
-    	$scope.window.minimize();
+        	$scope.window.minimize();
 	};
 
 	$scope.maximize = () => {
@@ -32,7 +32,7 @@ nodeInstanceManagerApp.controller('WindowController', function WindowController(
 	};
 
 	$scope.close = () => {
-    	$scope.window.close();
+    	    $scope.window.close();
 	};
 
 	$scope.init = () => {
@@ -43,12 +43,9 @@ nodeInstanceManagerApp.controller('WindowController', function WindowController(
         $scope.resizeContent();
     };
 
-
     document.onreadystatechange = () => {
         if (document.readyState === "complete") {
             $scope.init();
         }
     };
-
-
 });
